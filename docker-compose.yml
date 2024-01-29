@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    command: sh -c "sleep 10 && python server.py"
+
+  db:
+       image: mysql:8.0
+
+       environment:
+           MYSQL_ROOT_PASSWORD: 12345
+           MYSQL_DATABASE: chat
+       ports:
+           - 3306:3306
+
+       volumes:
+         - ./chat.sql:/docker-entrypoint-initdb.d/chat.sql    
+
