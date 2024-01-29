@@ -1,0 +1,8 @@
+Flask
+mysql-connector-python
+requests
+flask_mysqldb
+flask-socketio
+flask-session
+Flask-Login
+pymongo
